@@ -9,6 +9,8 @@ interface HeaderProps {
   inStockCount: number;
   readyRecipeCount: number;
   onSearchClick?: () => void;
+  onNavigateToShopping?: () => void;
+  onNavigateToPantry?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -18,101 +20,97 @@ export const Header: React.FC<HeaderProps> = ({
   inStockCount,
   readyRecipeCount,
   onSearchClick,
+  onNavigateToShopping,
+  onNavigateToPantry,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#ffffff]/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-[#e1ebde]/60">
-      <div className="h-20 max-w-7xl mx-auto px-gutter-desktop flex items-center justify-between gap-space-md">
+    <header className="fixed top-3 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-7xl z-50 glass-navbar rounded-[28px] transition-all duration-300">
+      <div className="h-20 px-4 sm:px-6 md:px-8 flex items-center justify-between gap-4">
         {/* Brand & Desktop Navigation */}
-        <div className="flex items-center gap-space-lg shrink-0">
+        <div className="flex items-center gap-6 lg:gap-8 shrink-0">
           <button
             onClick={() => onTabChange('pantry')}
-            className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
+            className="flex items-center gap-3.5 group text-left cursor-pointer focus:outline-none"
             aria-label="Recipe Finder Home"
           >
             {/* High-visibility Brand Logo Badge */}
-            <div className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#165a24] via-[#2e7d32] to-[#43a047] text-white shadow-md shadow-emerald-950/20 ring-2 ring-[#a3f69c]/60 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-emerald-900/30 transition-all duration-300 shrink-0">
-              <ChefHat className="w-6 h-6 sm:w-7 sm:h-7 text-white drop-shadow-sm transition-transform group-hover:rotate-6 duration-300" />
-              <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#fc820c] rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+            <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-[#165a24] via-[#2e7d32] to-[#43a047] text-white shadow-lg shadow-emerald-950/20 ring-2 ring-[#a3f69c]/60 group-hover:scale-108 group-hover:shadow-emerald-900/40 transition-all duration-300 shrink-0">
+              <ChefHat className="w-7 h-7 text-white drop-shadow-sm transition-transform group-hover:rotate-12 duration-300" />
+              <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#fc820c] rounded-full flex items-center justify-center border-2 border-white shadow-md">
                 <Search className="w-2.5 h-2.5 text-white stroke-[3]" />
               </div>
             </div>
 
             <div className="flex flex-col">
-              <span className="text-2xl sm:text-[26px] font-black text-[#0d631b] tracking-tight leading-none group-hover:text-[#1b8032] transition-colors">
+              <span className="text-2xl sm:text-[28px] font-black text-[#0d631b] tracking-tight leading-none group-hover:text-[#1b8032] transition-colors">
                 Recipe <span className="text-[#2e7d32]">Finder</span>
               </span>
-              <span className="text-[11px] sm:text-[12px] text-[#40493d] font-semibold tracking-wider uppercase mt-1">
+              <span className="text-[11px] sm:text-[12px] text-[#40493d] font-bold tracking-widest uppercase mt-1">
                 Smart Recipe Studio
               </span>
             </div>
           </button>
 
           {/* Center Tabs */}
-          <nav className="hidden xl:flex items-center gap-space-xs bg-[#ecf7ea] px-space-xs py-space-2xs rounded-full">
+          <nav className="hidden xl:flex items-center gap-1.5 bg-[#ecf7ea]/90 p-1.5 rounded-full border border-[#dbe5d9]">
             <button
-              onClick={() => onTabChange('pantry')}
-              className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all cursor-pointer ${
-                activeTab === 'pantry'
-                  ? 'bg-[#2e7d32] text-white font-bold shadow-sm'
-                  : 'text-[#40493d] hover:bg-[#e1ebde] hover:text-[#151e16]'
-              }`}
+              onClick={onNavigateToShopping}
+              className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all cursor-pointer ${activeTab === 'pantry'
+                  ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
+                  : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
+                }`}
             >
               Pantry & Input
             </button>
 
             <button
               onClick={() => onTabChange('recipes')}
-              className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-xs cursor-pointer ${
-                activeTab === 'recipes'
-                  ? 'bg-[#2e7d32] text-white font-bold shadow-sm'
-                  : 'text-[#40493d] hover:bg-[#e1ebde] hover:text-[#151e16]'
-              }`}
+              className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'recipes'
+                  ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
+                  : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
+                }`}
             >
               <span>Recipe Matches</span>
               <span
-                className={`font-label-sm text-[11px] px-2 py-0.5 rounded-full ${
-                  activeTab === 'recipes'
-                    ? 'bg-[#a3f69c] text-[#002204] font-bold'
+                className={`text-xs px-2.5 py-0.5 rounded-full font-extrabold ${activeTab === 'recipes'
+                    ? 'bg-[#a3f69c] text-[#002204]'
                     : 'bg-[#a3f69c] text-[#002204]'
-                }`}
+                  }`}
               >
                 {readyRecipeCount} Ready
               </span>
             </button>
 
             <button
-              onClick={() => onTabChange('cook')}
-              className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-xs cursor-pointer ${
-                activeTab === 'cook'
-                  ? 'bg-[#2e7d32] text-white font-bold shadow-sm'
-                  : 'text-[#40493d] hover:bg-[#e1ebde] hover:text-[#151e16]'
-              }`}
+              onClick={onNavigateToPantry}
+              className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'cook'
+                  ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
+                  : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
+                }`}
             >
               <span>Cook Mode</span>
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#964900] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#fc820c]"></span>
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fc820c] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#fc820c]"></span>
               </span>
             </button>
 
             <button
               onClick={() => onTabChange('shopping')}
-              className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all flex items-center gap-space-xs cursor-pointer ${
-                activeTab === 'shopping'
-                  ? 'bg-[#2e7d32] text-white font-bold shadow-sm'
-                  : 'text-[#40493d] hover:bg-[#e1ebde] hover:text-[#151e16]'
-              }`}
+              className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'shopping'
+                  ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
+                  : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
+                }`}
             >
               <span>Smart Shopping</span>
               <span
-                className={`font-label-sm text-[11px] px-2 py-0.5 rounded-full ${
-                  activeTab === 'shopping'
-                    ? 'bg-[#ffdcc6] text-[#311300] font-bold'
+                className={`text-xs px-2.5 py-0.5 rounded-full font-extrabold ${activeTab === 'shopping'
+                    ? 'bg-[#ffdcc6] text-[#311300]'
                     : 'bg-[#ffdcc6] text-[#311300]'
-                }`}
+                  }`}
               >
                 {shoppingCount} items
               </span>
@@ -121,11 +119,11 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Right Action Icons & Chef Profile */}
-        <div className="flex items-center gap-space-sm">
-          <div className="hidden md:flex items-center gap-space-xs bg-[#ecf7ea] px-space-sm py-space-xs rounded-full text-[#151e16]">
-            <span className="h-2 w-2 rounded-full bg-[#0d631b] inline-block"></span>
-            <span className="font-label-md text-label-md font-bold">{inStockCount} Items</span>
-            <span className="font-label-md text-label-md text-[#40493d]">In Stock</span>
+        <div className="flex items-center gap-3 flex-center">
+          <div className="hidden md:flex items-center gap-2 bg-[#ecf7ea]/90 border border-[#dbe5d9] px-4 py-2 rounded-full text-[#151e16]">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#0d631b] inline-block animate-pulse"></span>
+            <span className="text-sm font-extrabold">{inStockCount} Items</span>
+            <span className="text-sm text-[#40493d] font-medium">In Stock</span>
           </div>
 
           <button
@@ -222,9 +220,8 @@ export const Header: React.FC<HeaderProps> = ({
                 onTabChange('pantry');
                 setMobileMenuOpen(false);
               }}
-              className={`w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-between ${
-                activeTab === 'pantry' ? 'bg-[#2e7d32] text-white font-bold' : 'text-[#40493d] hover:bg-[#ecf7ea]'
-              }`}
+              className={`w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-between ${activeTab === 'pantry' ? 'bg-[#2e7d32] text-white font-bold' : 'text-[#40493d] hover:bg-[#ecf7ea]'
+                }`}
             >
               <span>Pantry & Input</span>
               <span className="text-xs">{inStockCount} items</span>
@@ -235,9 +232,8 @@ export const Header: React.FC<HeaderProps> = ({
                 onTabChange('recipes');
                 setMobileMenuOpen(false);
               }}
-              className={`w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-between ${
-                activeTab === 'recipes' ? 'bg-[#2e7d32] text-white font-bold' : 'text-[#40493d] hover:bg-[#ecf7ea]'
-              }`}
+              className={`w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-between ${activeTab === 'recipes' ? 'bg-[#2e7d32] text-white font-bold' : 'text-[#40493d] hover:bg-[#ecf7ea]'
+                }`}
             >
               <span>Recipe Matches</span>
               <span className="bg-[#a3f69c] text-[#002204] text-xs px-2 py-0.5 rounded-full font-bold">
@@ -250,9 +246,8 @@ export const Header: React.FC<HeaderProps> = ({
                 onTabChange('cook');
                 setMobileMenuOpen(false);
               }}
-              className={`w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-between ${
-                activeTab === 'cook' ? 'bg-[#2e7d32] text-white font-bold' : 'text-[#40493d] hover:bg-[#ecf7ea]'
-              }`}
+              className={`w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-between ${activeTab === 'cook' ? 'bg-[#2e7d32] text-white font-bold' : 'text-[#40493d] hover:bg-[#ecf7ea]'
+                }`}
             >
               <span>Cook Mode</span>
               <span className="relative flex h-2 w-2">
@@ -266,9 +261,8 @@ export const Header: React.FC<HeaderProps> = ({
                 onTabChange('shopping');
                 setMobileMenuOpen(false);
               }}
-              className={`w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-between ${
-                activeTab === 'shopping' ? 'bg-[#2e7d32] text-white font-bold' : 'text-[#40493d] hover:bg-[#ecf7ea]'
-              }`}
+              className={`w-full text-left px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-between ${activeTab === 'shopping' ? 'bg-[#2e7d32] text-white font-bold' : 'text-[#40493d] hover:bg-[#ecf7ea]'
+                }`}
             >
               <span>Smart Shopping</span>
               <span className="bg-[#ffdcc6] text-[#311300] text-xs px-2 py-0.5 rounded-full font-bold">

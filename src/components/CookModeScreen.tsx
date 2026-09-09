@@ -83,7 +83,9 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
           <span>Chettinad Special</span>
           <span>/</span>
           <span className="text-[#151e16] font-bold">Chettinad Chicken Varuval</span>
-           <div className="flex items-center gap-2">
+        </div>
+
+        <div className="flex items-center gap-2">
           <span className="px-3 py-1 rounded-full bg-[#ecf7ea] text-[#0d631b] font-label-md text-xs font-bold border border-[#a3f69c]">
             100% Pantry Match
           </span>
@@ -175,7 +177,6 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).src = '/chef-hrithick.jpg';
             }}
-          />   className="w-full h-full object-cover opacity-90"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 

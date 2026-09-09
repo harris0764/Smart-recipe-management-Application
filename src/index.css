@@ -30,9 +30,9 @@
   --color-on-tertiary-fixed: #002203;
   --color-on-tertiary-fixed-variant: #0c5216;
 
-  --color-surface: #f2fcef;
+  --color-surface: #f4faf2;
   --color-surface-dim: #d3ddd0;
-  --color-surface-bright: #f2fcef;
+  --color-surface-bright: #f4faf2;
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-low: #ecf7ea;
   --color-surface-container: #e6f1e4;
@@ -42,7 +42,7 @@
 
   --color-on-surface: #151e16;
   --color-on-surface-variant: #40493d;
-  --color-inverse-surface: #29332a;
+  --color-inverse-surface: #1a261c;
   --color-inverse-on-surface: #e9f4e7;
   --color-inverse-primary: #88d982;
 
@@ -55,96 +55,184 @@
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
 
-  --color-background: #f2fcef;
+  --color-background: #f4faf2;
   --color-on-background: #151e16;
 }
 
-/* Custom Spacing & Typography Utility Mappings */
+/* Custom Ambient Theme & Glassmorphism Utilities */
 @layer utilities {
-  .px-gutter-desktop { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .px-gutter-mobile { padding-left: 1rem; padding-right: 1rem; }
-  .p-space-2xs { padding: 0.25rem; }
-  .p-space-xs { padding: 0.5rem; }
-  .p-space-sm { padding: 0.75rem; }
-  .p-space-md { padding: 1rem; }
-  .p-space-lg { padding: 1.5rem; }
-  .p-space-xl { padding: 2rem; }
-  .p-space-2xl { padding: 3rem; }
-  .p-space-3xl { padding: 4rem; }
+  .px-gutter-desktop {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 
-  .py-space-2xs { padding-top: 0.25rem; padding-bottom: 0.25rem; }
-  .py-space-xs { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-  .py-space-sm { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-  .py-space-md { padding-top: 1rem; padding-bottom: 1rem; }
-  .py-space-lg { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-  .py-space-xl { padding-top: 2rem; padding-bottom: 2rem; }
-  .py-space-2xl { padding-top: 3rem; padding-bottom: 3rem; }
+  .px-gutter-mobile {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 
-  .px-space-2xs { padding-left: 0.25rem; padding-right: 0.25rem; }
-  .px-space-xs { padding-left: 0.5rem; padding-right: 0.5rem; }
-  .px-space-sm { padding-left: 0.75rem; padding-right: 0.75rem; }
-  .px-space-md { padding-left: 1rem; padding-right: 1rem; }
-  .px-space-lg { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .px-space-xl { padding-left: 2rem; padding-right: 2rem; }
+  .ambient-mesh-bg {
+    background-color: #f4faf2;
+    background-image:
+      radial-gradient(at 15% 15%, rgba(13, 99, 27, 0.08) 0px, transparent 55%),
+      radial-gradient(at 85% 20%, rgba(252, 130, 12, 0.07) 0px, transparent 50%),
+      radial-gradient(at 50% 80%, rgba(46, 125, 50, 0.06) 0px, transparent 60%),
+      radial-gradient(at 80% 85%, rgba(163, 246, 156, 0.12) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
 
-  .pt-space-xs { padding-top: 0.5rem; }
-  .pt-space-sm { padding-top: 0.75rem; }
-  .pt-space-md { padding-top: 1rem; }
-  .pt-space-lg { padding-top: 1.5rem; }
-  .pt-space-xl { padding-top: 2rem; }
-  .pb-space-2xs { padding-bottom: 0.25rem; }
-  .pb-space-xs { padding-bottom: 0.5rem; }
-  .pb-space-sm { padding-bottom: 0.75rem; }
-  .pb-space-md { padding-bottom: 1rem; }
-  .pb-space-lg { padding-bottom: 1.5rem; }
-  .pb-space-xl { padding-bottom: 2rem; }
-  .pb-space-2xl { padding-bottom: 3rem; }
-  .pb-space-3xl { padding-bottom: 4rem; }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(225, 235, 222, 0.9);
+    box-shadow: 0 10px 30px -5px rgba(15, 45, 18, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+  }
 
-  .pl-space-xs { padding-left: 0.5rem; }
-  .pl-space-sm { padding-left: 0.75rem; }
-  .pl-space-md { padding-left: 1rem; }
-  .pl-space-lg { padding-left: 1.5rem; }
-  .pr-space-xs { padding-right: 0.5rem; }
-  .pr-space-sm { padding-right: 0.75rem; }
-  .pr-space-md { padding-right: 1rem; }
-  .pr-space-lg { padding-right: 1.5rem; }
+  .glass-card-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-  .gap-space-2xs { gap: 0.25rem; }
-  .gap-space-xs { gap: 0.5rem; }
-  .gap-space-sm { gap: 0.75rem; }
-  .gap-space-md { gap: 1rem; }
-  .gap-space-lg { gap: 1.5rem; }
-  .gap-space-xl { gap: 2rem; }
+  .glass-card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px -12px rgba(13, 99, 27, 0.14), 0 2px 6px 0 rgba(0, 0, 0, 0.03);
+    border-color: rgba(46, 125, 50, 0.35);
+  }
 
-  .mb-space-2xs { margin-bottom: 0.25rem; }
-  .mb-space-xs { margin-bottom: 0.5rem; }
-  .mb-space-sm { margin-bottom: 0.75rem; }
-  .mb-space-md { margin-bottom: 1rem; }
-  .mb-space-lg { margin-bottom: 1.5rem; }
-  .mb-space-xl { margin-bottom: 2rem; }
-  .mb-space-2xl { margin-bottom: 3rem; }
+  .glass-navbar {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(225, 235, 222, 0.8);
+    box-shadow: 0 12px 36px -8px rgba(0, 34, 4, 0.08);
+  }
 
-  .mt-space-2xs { margin-top: 0.25rem; }
-  .mt-space-xs { margin-top: 0.5rem; }
-  .mt-space-sm { margin-top: 0.75rem; }
-  .mt-space-md { margin-top: 1rem; }
-  .mt-space-lg { margin-top: 1.5rem; }
-  .mt-space-xl { margin-top: 2rem; }
-  .mt-space-2xl { margin-top: 3rem; }
+  .glow-primary {
+    box-shadow: 0 0 25px -4px rgba(46, 125, 50, 0.4);
+  }
 
-  .font-display-lg { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 40px; line-height: 48px; letter-spacing: -0.02em; font-weight: 700; }
-  .font-display-lg-mobile { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; line-height: 38px; letter-spacing: -0.01em; font-weight: 700; }
-  .font-headline-lg { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; line-height: 40px; letter-spacing: -0.015em; font-weight: 700; }
-  .font-headline-md { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; line-height: 30px; letter-spacing: -0.01em; font-weight: 600; }
-  .font-headline-sm { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; line-height: 26px; font-weight: 600; }
-  .font-body-lg { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; line-height: 26px; font-weight: 400; }
-  .font-body-md { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; line-height: 22px; font-weight: 400; }
-  .font-body-sm { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; line-height: 18px; font-weight: 400; }
-  .font-label-lg { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; line-height: 20px; letter-spacing: 0.01em; font-weight: 600; }
-  .font-label-md { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.02em; font-weight: 600; }
-  .font-label-sm { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; line-height: 14px; letter-spacing: 0.04em; font-weight: 700; }
+  .glow-secondary {
+    box-shadow: 0 0 25px -4px rgba(252, 130, 12, 0.45);
+  }
+
+  /* Typography Scale Overrides for Impact */
+  .font-display-hero {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+  }
+
+  .font-display-lg {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 44px;
+    line-height: 52px;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+  }
+
+  .font-display-lg-mobile {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+
+  .font-headline-lg {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 34px;
+    line-height: 42px;
+    letter-spacing: -0.02em;
+    font-weight: 750;
+  }
+
+  .font-headline-md {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+
+  .font-headline-sm {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 19px;
+    line-height: 28px;
+    font-weight: 650;
+  }
+
+  .font-body-lg {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    line-height: 28px;
+    font-weight: 450;
+  }
+
+  .font-body-md {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 450;
+  }
+
+  .font-body-sm {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 450;
+  }
+
+  .font-label-lg {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    font-weight: 600;
+  }
+
+  .font-label-md {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+  }
+
+  .font-label-sm {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+  }
 }
+
+/* New Background and Glass Utilities */
+.bg-main {
+  background-image: url('/kitchen_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(225, 235, 222, 0.6);
+  box-shadow: 0 6px 20px -4px rgba(0, 0, 0, 0.08);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 9999px;
+  border: 1px solid rgba(225, 235, 222, 0.5);
+}
+
 
 /* Material Symbols alignment helper */
 .material-symbols-outlined {
@@ -168,7 +256,40 @@
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* UI Utility Classes */
+.btn-primary {
+  @apply px-4 py-2 rounded-full bg-[#0d631b] text-white font-bold text-sm md:text-base hover:bg-[#1b8032] transition-colors;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+/* Refine glass-card hover */
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes pulseSubtle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s infinite ease-in-out;
 }

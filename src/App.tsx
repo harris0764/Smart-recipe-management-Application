@@ -287,7 +287,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f2fcef] text-[#151e16] flex flex-col justify-between selection:bg-[#a3f69c] selection:text-[#002204]">
+    <div className="min-h-screen ambient-mesh-bg bg-main text-[#151e16] flex flex-col justify-between selection:bg-[#a3f69c] selection:text-[#002204] relative overflow-x-hidden">
+      {/* Decorative ambient culinary background lighting */}
+      <div className="fixed top-0 left-1/4 w-96 h-96 bg-[#2e7d32]/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-subtle"></div>
+      <div className="fixed top-1/3 right-10 w-[28rem] h-[28rem] bg-[#fc820c]/8 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="fixed bottom-10 left-10 w-80 h-80 bg-[#165a24]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
       {/* Persistent Navigation Header */}
       <Header
         activeTab={activeTab}
