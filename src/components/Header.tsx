@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ChefHat, Search } from 'lucide-react';
 import { ScreenTab } from '../types';
 
 interface HeaderProps {
@@ -28,16 +29,24 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-space-lg shrink-0">
           <button
             onClick={() => onTabChange('pantry')}
-            className="flex items-center gap-space-sm group text-left cursor-pointer focus:outline-none"
+            className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
+            aria-label="Recipe Finder Home"
           >
-            <img
-              alt="PantryCraft Logo"
-              className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
-              src="https://lh3.googleusercontent.com/aida/AEtjO1WdsHmnBJQNOjvoAJOrJ4ZCXzzrSWahOV-pokw8WANZlH76A363Fsfxeu2vjPquInAvF_gGQpCfNj0jevoi3RQG2QaywdjPQdDxZueWaCCx3261n6jW73J9yoqL_X_AhZ1LhoRNfCVlkS7EYMTG5X-5Kh3sIkMT1eOzzElq9vnfIbHe01xysUgyuaiHQKZueATw0T41neqd09YyV4m7lHsJR5hdZNkpGU8H-wW3u6gUyONwchQwdBwAUA"
-            />
+            {/* High-visibility Brand Logo Badge */}
+            <div className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#165a24] via-[#2e7d32] to-[#43a047] text-white shadow-md shadow-emerald-950/20 ring-2 ring-[#a3f69c]/60 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-emerald-900/30 transition-all duration-300 shrink-0">
+              <ChefHat className="w-6 h-6 sm:w-7 sm:h-7 text-white drop-shadow-sm transition-transform group-hover:rotate-6 duration-300" />
+              <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#fc820c] rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+                <Search className="w-2.5 h-2.5 text-white stroke-[3]" />
+              </div>
+            </div>
+
             <div className="flex flex-col">
-              <span className="font-headline-sm text-[19px] font-bold text-[#0d631b] tracking-tight">PantryCraft</span>
-              <span className="font-label-sm text-[11px] text-[#40493d] font-normal tracking-wide">Smart Recipe Studio</span>
+              <span className="text-2xl sm:text-[26px] font-black text-[#0d631b] tracking-tight leading-none group-hover:text-[#1b8032] transition-colors">
+                Recipe <span className="text-[#2e7d32]">Finder</span>
+              </span>
+              <span className="text-[11px] sm:text-[12px] text-[#40493d] font-semibold tracking-wider uppercase mt-1">
+                Smart Recipe Studio
+              </span>
             </div>
           </button>
 
@@ -129,7 +138,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           <button
-            onClick={() => alert('PantryCraft Alerts:\n• 1 item expiring soon (Fresh Basil: 2 days)\n• 14 chef-matched recipes available')}
+            onClick={() => alert('Recipe Finder Alerts:\n• 1 item expiring soon (Fresh Karuveppilai / Curry Leaves: 2 days)\n• 8 authentic Tamil Nadu chef recipes matched!')}
             aria-label="Notifications"
             className="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#ecf7ea] text-[#40493d] hover:bg-[#e1ebde] hover:text-[#151e16] transition-colors cursor-pointer"
             type="button"
@@ -146,25 +155,31 @@ export const Header: React.FC<HeaderProps> = ({
               type="button"
             >
               <img
-                alt="Profile"
-                className="w-8 h-8 rounded-full object-cover ring-1 ring-[#0d631b]/20"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX1Sg2LdLX6QjJjuqlGYIgOqxCGU5bhgVDU9ORhCz6wI7ZcxczhOV3PolrQQS8JLgYX_ZXwNa12_mHBVjBnQYuNQBOeif7GmBmuuRIwIT3K7tW8m0LqARnYK9UhQyveV8B7U85VcLro7FZO3BExC37PLfc_HM35MLl9IFLHcHPXhi69FHlAbvzw1nCmzVTyI_ncagagLaAzrQ371pgi8ScysQBcg2hXJKA91VmRe6iGquEIf2Hl_M0"
+                alt="Chef Hrithick"
+                className="w-9 h-9 rounded-full object-cover object-top ring-2 ring-[#0d631b]/30 shadow-sm"
+                src="/chef-hrithick.jpg"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=120&auto=format&fit=crop&q=80';
+                }}
               />
-              <span className="hidden lg:inline font-label-lg text-label-lg text-[#151e16] font-semibold">Chef Maya</span>
+              <span className="hidden lg:inline font-label-lg text-label-lg text-[#151e16] font-bold">Chef Hrithick</span>
               <span className="material-symbols-outlined text-[18px] text-[#40493d]">expand_more</span>
             </button>
 
             {profileOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-[#e1ebde] p-space-sm z-50 text-left">
-                <div className="flex items-center gap-space-sm pb-space-xs border-b border-[#e1ebde]">
+              <div className="absolute right-0 mt-2 w-72 bg-white rounded-3xl shadow-2xl border border-[#e1ebde] p-4 z-50 text-left">
+                <div className="flex items-center gap-3 pb-3 border-b border-[#e1ebde]">
                   <img
-                    alt="Chef Maya"
-                    className="w-10 h-10 rounded-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX1Sg2LdLX6QjJjuqlGYIgOqxCGU5bhgVDU9ORhCz6wI7ZcxczhOV3PolrQQS8JLgYX_ZXwNa12_mHBVjBnQYuNQBOeif7GmBmuuRIwIT3K7tW8m0LqARnYK9UhQyveV8B7U85VcLro7FZO3BExC37PLfc_HM35MLl9IFLHcHPXhi69FHlAbvzw1nCmzVTyI_ncagagLaAzrQ371pgi8ScysQBcg2hXJKA91VmRe6iGquEIf2Hl_M0"
+                    alt="Chef Hrithick"
+                    className="w-12 h-12 rounded-full object-cover object-top ring-2 ring-[#0d631b]"
+                    src="/chef-hrithick.jpg"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=120&auto=format&fit=crop&q=80';
+                    }}
                   />
                   <div>
-                    <h4 className="font-headline-sm text-[15px] font-bold text-[#151e16]">Chef Maya</h4>
-                    <p className="font-body-sm text-[12px] text-[#40493d]">Culinary Pro Tier</p>
+                    <h4 className="font-headline-sm text-[16px] font-extrabold text-[#151e16]">Chef Hrithick</h4>
+                    <p className="font-body-sm text-[12px] text-[#0d631b] font-semibold">Master Tamil Chef · Pro Tier</p>
                   </div>
                 </div>
                 <div className="py-2 flex flex-col gap-1 text-sm text-[#40493d]">

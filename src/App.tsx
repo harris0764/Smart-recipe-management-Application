@@ -205,47 +205,64 @@ export default function App() {
 
   // Open Substitution Modal with realistic context
   const handleOpenSubstitutionModal = (recipeTitle: string, missingItem: string) => {
-    if (missingItem.toLowerCase().includes('tahini')) {
+    if (missingItem.toLowerCase().includes('coconut') || missingItem.toLowerCase().includes('thengai')) {
       setSubstitutionModal({
         isOpen: true,
         title: `Pantry Substitutions for ${missingItem}`,
         substitutes: [
           {
-            name: 'Sunflower Seed Butter (SunButter)',
+            name: 'Desiccated Dried Coconut Flakes (Steamed)',
             ratio: '1:1 replacement',
-            flavorNote: 'Near identical earthy nuttiness, 100% nut-free and allergy-safe.',
+            flavorNote: 'Soak in 2 tbsp hot water for 3 minutes to restore natural sweetness and crunch.',
           },
           {
-            name: 'Greek Yogurt + Lemon & Toasted Sesame Seeds',
-            ratio: '2 tbsp yogurt + 1 tsp seeds',
-            flavorNote: 'Creates a rich creamy body with bright Mediterranean acidity.',
+            name: 'Ground Cashew Nut & Poppy Seed Paste',
+            ratio: '1 tbsp paste',
+            flavorNote: 'Provides luxurious silkiness and nutty aroma for Chettinad gravies.',
           },
           {
-            name: 'Cashew or Almond Butter + Pinch of Salt',
-            ratio: '1:1 replacement',
-            flavorNote: 'Mild, silky richness; matches savory dressing balance.',
+            name: 'Roasted Chana Dal (Pottukadalai) Powder',
+            ratio: '1 tbsp powder',
+            flavorNote: 'Thickens the curry with traditional South Indian roasted aroma.',
           },
         ],
       });
-    } else if (missingItem.toLowerCase().includes('cream')) {
+    } else if (missingItem.toLowerCase().includes('vathal') || missingItem.toLowerCase().includes('sundakkai')) {
       setSubstitutionModal({
         isOpen: true,
         title: `Pantry Substitutions for ${missingItem}`,
         substitutes: [
           {
-            name: 'Whole Milk + Melted Grass-Fed Butter',
-            ratio: '3/4 cup milk + 1/4 cup melted butter',
-            flavorNote: 'Emulsifies smoothly into skillet pan sauce drippings.',
+            name: 'Manathakkali (Black Nightshade) Vathal',
+            ratio: '1:1 replacement',
+            flavorNote: 'Classic herbal vathal; offers soothing stomach-healing bitter-tangy depth.',
           },
           {
-            name: 'Canned Full-Fat Coconut Cream',
-            ratio: '1:1 replacement',
-            flavorNote: 'Plant-based decadence, pairs exquisitely with garlic and sundried tomatoes.',
+            name: 'Extra Whole Country Garlic Cloves (Deep Fried)',
+            ratio: '10 extra cloves',
+            flavorNote: 'Browned slowly in gingelly oil to impart deep caramelized richness to Vatha Kuzhambu.',
           },
           {
-            name: 'Greek Yogurt or Cream Cheese Whisked with Broth',
+            name: 'Mithukku Vathal (Curd Chilli / Mor Milagai)',
+            ratio: '2 pcs fried crisp',
+            flavorNote: 'Adds salty, tangy crunch that pairs delightfully with tamarind gravy.',
+          },
+        ],
+      });
+    } else if (missingItem.toLowerCase().includes('sesame') || missingItem.toLowerCase().includes('ellu')) {
+      setSubstitutionModal({
+        isOpen: true,
+        title: `Pantry Substitutions for ${missingItem}`,
+        substitutes: [
+          {
+            name: 'Roasted Peanuts (Verkadalai) Ground Coarse',
             ratio: '1:1 replacement',
-            flavorNote: 'Adds a delightful tangy finish with high protein density.',
+            flavorNote: 'Adds rich nuttiness and thickens Ennai Kathirikai gravy wonderfully.',
+          },
+          {
+            name: 'White Melon Seeds (Magaz) or Cashews',
+            ratio: '1 tbsp ground',
+            flavorNote: 'Delivers a velvet royal consistency without changing spice balance.',
           },
         ],
       });
@@ -255,14 +272,14 @@ export default function App() {
         title: `Pantry Substitutions for ${missingItem}`,
         substitutes: [
           {
-            name: 'Fresh Lemon Juice + Splash of White Vinegar',
+            name: 'Kokum Extract or Country Lemon (Nattu Elumichai)',
             ratio: '1:1 replacement',
-            flavorNote: 'Provides clean crisp acidity to cut through rich grilled proteins.',
+            flavorNote: 'Delivers sharp, clean South Indian acidity to balance robust roasted spices.',
           },
           {
-            name: 'Apple Cider Vinegar',
-            ratio: '1:1 replacement',
-            flavorNote: 'Subtle fruity undertones that complement charred garlic and herbs.',
+            name: 'Crushed Country Heirloom Tomatoes (Nattu Thakkali)',
+            ratio: '2 small tomatoes mashed',
+            flavorNote: 'Provides natural fruity sourness and rich red body.',
           },
         ],
       });

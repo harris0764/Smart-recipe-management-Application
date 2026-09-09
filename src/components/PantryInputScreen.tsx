@@ -44,7 +44,7 @@ export const PantryInputScreen: React.FC<PantryInputScreenProps> = ({
     setIsListening(true);
     setTimeout(() => {
       setIsListening(false);
-      onAddCustomChip('🍋 Meyer Lemon');
+      onAddCustomChip('🍋 Nattu Elumichai (Country Lemon)');
     }, 1500);
   };
 
@@ -83,7 +83,7 @@ export const PantryInputScreen: React.FC<PantryInputScreenProps> = ({
             type="text"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            placeholder="Type ingredient (e.g. Avocado, Garlic, Chicken, Jasmine rice...)"
+            placeholder="Type ingredient (e.g. Chinna Vengayam, Karuveppilai, Chicken, Seeraga samba...)"
             className="w-full py-2.5 px-2 bg-transparent text-[#151e16] placeholder-[#707a6c] font-body-md focus:outline-none"
           />
 
@@ -364,6 +364,9 @@ export const PantryInputScreen: React.FC<PantryInputScreenProps> = ({
                   alt={item.name}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   loading="lazy"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&auto=format&fit=crop&q=80';
+                  }}
                 />
                 <span
                   className={`absolute top-2.5 left-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md shadow-xs ${

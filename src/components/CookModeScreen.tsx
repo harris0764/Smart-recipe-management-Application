@@ -30,7 +30,7 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
       }, 1000);
     } else if (timerSeconds === 0 && isTimerRunning) {
       setIsTimerRunning(false);
-      alert('⏰ Timer complete! Time to flip your chicken breasts and deglaze.');
+      alert('⏰ Timer complete! Time to add the freshly crushed Chettinad pepper masala and roast on high flame.');
     }
     return () => clearInterval(interval);
   }, [isTimerRunning, timerSeconds]);
@@ -50,7 +50,7 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
         setIsTimerRunning(false);
       }
     } else {
-      alert('🎉 Delicious work, Chef! Your Lemon Herb Chicken is ready to serve. Enjoy your zero-waste meal!');
+      alert('🎉 அருமை! (Delicious work, Chef!) Your authentic Chettinad Chicken Varuval is ready to serve hot with Seeraga Samba rice. Enjoy your feast!');
     }
   };
 
@@ -80,17 +80,16 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
             Recipes
           </button>
           <span>/</span>
-          <span>Dinner</span>
+          <span>Chettinad Special</span>
           <span>/</span>
-          <span className="text-[#151e16] font-bold">Pan-Seared Lemon Herb Chicken</span>
-        </div>
-
-        <div className="flex items-center gap-2">
+          <span className="text-[#151e16] font-bold">Chettinad Chicken Varuval</span>
+           <div className="flex items-center gap-2">
           <span className="px-3 py-1 rounded-full bg-[#ecf7ea] text-[#0d631b] font-label-md text-xs font-bold border border-[#a3f69c]">
             100% Pantry Match
           </span>
-          <span className="px-3 py-1 rounded-full bg-[#ffdcc6] text-[#311300] font-label-md text-xs font-bold">
-            Chef Maya Tested
+          <span className="px-3 py-1 rounded-full bg-[#ffdcc6] text-[#311300] font-label-md text-xs font-bold flex items-center gap-1">
+            <span className="material-symbols-outlined text-[14px] text-[#964900]">verified</span>
+            Chef Hrithick Tested
           </span>
         </div>
       </div>
@@ -99,17 +98,17 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-space-lg">
         <div>
           <h1 className="font-headline-lg text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#151e16] tracking-tight">
-            Pan-Seared Lemon Herb Chicken & Crispy Garlic Potatoes
+            Chettinad Chicken Varuval (செட்டிநாடு சிக்கன் வறுவல்)
           </h1>
           <div className="flex flex-wrap items-center gap-4 mt-2 text-xs md:text-sm text-[#40493d]">
             <span className="flex items-center gap-1 font-bold text-[#151e16]">
               <span className="material-symbols-outlined text-[18px] text-[#fc820c]">star</span>
-              4.9 (342 reviews)
+              4.9 (428 home chefs)
             </span>
             <span>•</span>
             <span className="flex items-center gap-1">
               <span className="material-symbols-outlined text-[18px] text-[#0d631b]">schedule</span>
-              25 mins Total (10m prep · 15m cook)
+              25 mins Total (10m prep · 15m active kadai roast)
             </span>
             <span>•</span>
             <span className="flex items-center gap-1">
@@ -170,9 +169,13 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
       <div className="relative rounded-3xl overflow-hidden mb-space-xl border border-[#e1ebde] bg-[#151e16] shadow-md">
         <div className="h-72 md:h-96 w-full relative">
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Wwb2nnMurOnowSHLcW9Ym2UqMWIiPjJ8UaBmqLjMHsvIpiordc5I5y0y5qqF5m9fF8zys5LoZahH0vALKnnBXJSjNK3ackKsiPmzjmJAzeICPROFM-YtZui45YWrWRfK0hl8I6MC_qqfdUFFJuA7ndhBshqtT0loqXzAbE8kkdTDG8Iir60MJJNfjUK7FmsvOtBSZUrXYfvjAzW6aOiOIpIcBbMeTFmY4fa4RhrCNp0L7_PrHYpY"
-            alt="Pan-Seared Lemon Herb Chicken"
+            src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=800&auto=format&fit=crop&q=80"
+            alt="Chettinad Chicken Varuval"
             className="w-full h-full object-cover opacity-90"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = '/chef-hrithick.jpg';
+            }}
+          />   className="w-full h-full object-cover opacity-90"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
@@ -180,22 +183,22 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
             <div>
               <div className="flex flex-wrap gap-2 mb-2">
                 <span className="px-3 py-1 rounded-full bg-white/90 text-[#002204] text-xs font-bold backdrop-blur-md">
-                  Chef's Signature
+                  Chettinad Heritage
                 </span>
                 <span className="px-3 py-1 rounded-full bg-black/50 text-white text-xs font-medium backdrop-blur-md">
-                  Naturally Low Sugar
+                  Cold-Pressed Nallennai
                 </span>
                 <span className="px-3 py-1 rounded-full bg-black/50 text-white text-xs font-medium backdrop-blur-md">
-                  High Protein · GF
+                  High Protein · Gluten-Free
                 </span>
               </div>
               <p className="text-white/90 text-sm font-medium">
-                Crispy golden sear with pan-dripping lemon herb deglaze sauce.
+                Fragrant dry roast with freshly crushed black peppercorns, shallots & curry leaves in an iron kadai.
               </p>
             </div>
 
             <span className="px-3 py-1.5 rounded-xl bg-[#a3f69c] text-[#002204] font-label-md text-xs font-bold shrink-0">
-              Carbon Neutral Pantry Recipe
+              100% Tamil Pantry Recipe
             </span>
           </div>
         </div>
@@ -209,39 +212,39 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
             Nutrition Profile (Per Serving)
           </h3>
           <span className="text-xs text-[#0d631b] font-semibold bg-[#ecf7ea] px-2.5 py-1 rounded-full">
-            Zero Waste Formula
+            Zero Processed Sauces
           </span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           <div className="p-3.5 rounded-2xl bg-[#f2fcef] border border-[#dbe5d9]">
             <span className="text-xs text-[#40493d]">Calories</span>
-            <div className="font-headline-md text-xl font-bold text-[#151e16] mt-0.5">480 kcal</div>
-            <span className="text-[11px] text-[#0d631b] font-semibold">Balanced Energy</span>
+            <div className="font-headline-md text-xl font-bold text-[#151e16] mt-0.5">440 kcal</div>
+            <span className="text-[11px] text-[#0d631b] font-semibold">High Satiety</span>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-[#f2fcef] border border-[#dbe5d9]">
             <span className="text-xs text-[#40493d]">Lean Protein</span>
-            <div className="font-headline-md text-xl font-bold text-[#0d631b] mt-0.5">42g</div>
-            <span className="text-[11px] text-[#40493d]">84% Daily Target</span>
+            <div className="font-headline-md text-xl font-bold text-[#0d631b] mt-0.5">44g</div>
+            <span className="text-[11px] text-[#40493d]">88% Daily Target</span>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-[#f2fcef] border border-[#dbe5d9]">
             <span className="text-xs text-[#40493d]">Net Carbs</span>
-            <div className="font-headline-md text-xl font-bold text-[#151e16] mt-0.5">24g</div>
-            <span className="text-[11px] text-[#40493d]">From Whole Potatoes</span>
+            <div className="font-headline-md text-xl font-bold text-[#151e16] mt-0.5">8g</div>
+            <span className="text-[11px] text-[#40493d]">From Shallots & Spices</span>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-[#f2fcef] border border-[#dbe5d9]">
             <span className="text-xs text-[#40493d]">Healthy Fats</span>
-            <div className="font-headline-md text-xl font-bold text-[#151e16] mt-0.5">18g</div>
-            <span className="text-[11px] text-[#40493d]">Extra Virgin Olive Oil</span>
+            <div className="font-headline-md text-xl font-bold text-[#151e16] mt-0.5">16g</div>
+            <span className="text-[11px] text-[#40493d]">Gingelly (Sesame) Oil</span>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-[#f2fcef] border border-[#dbe5d9] col-span-2 sm:col-span-1">
             <span className="text-xs text-[#40493d]">Sodium</span>
-            <div className="font-headline-md text-xl font-bold text-[#151e16] mt-0.5">420mg</div>
-            <span className="text-[11px] text-[#0d631b] font-semibold">Heart Healthy</span>
+            <div className="font-headline-md text-xl font-bold text-[#151e16] mt-0.5">380mg</div>
+            <span className="text-[11px] text-[#0d631b] font-semibold">Natural Rock Salt</span>
           </div>
         </div>
       </div>
@@ -279,14 +282,14 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
           {/* Scaled Ingredients List */}
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              { name: 'Free-Range Chicken Breast', qty: `${Math.round(500 * scale)}g`, note: 'Crisper drawer (On-hand)' },
-              { name: 'Garlic Cloves', qty: `${Math.round(4 * scale)} cloves`, note: 'Minced · Pantry shelf' },
-              { name: 'Meyer Lemons', qty: `${(1 * scale).toFixed(1)} whole`, note: 'Juiced & zested' },
-              { name: 'Baby Gold Potatoes', qty: `${Math.round(400 * scale)}g`, note: 'Halved · Pantry basket' },
-              { name: 'Fresh Rosemary', qty: `${Math.max(1, Math.round(2 * scale))} sprigs`, note: 'Herb jar on counter' },
-              { name: 'Extra Virgin Olive Oil', qty: `${Math.round(2 * scale)} tbsp`, note: 'Cold pressed in pantry' },
-              { name: 'Grass-Fed Butter', qty: `${Math.round(1 * scale)} tbsp`, note: 'In refrigerator dairy bin' },
-              { name: 'Coarse Sea Salt & Pepper', qty: 'To taste', note: 'Pantry spice rack' },
+              { name: 'Tender Farm Chicken (Kozhi)', qty: `${Math.round(500 * scale)}g`, note: 'Fresh bone-in curry cut' },
+              { name: 'Chinna Vengayam (Shallots)', qty: `${Math.round(150 * scale)}g`, note: 'Peeled & halved' },
+              { name: 'Karun Milagu (Black Pepper)', qty: `${Math.max(1, Math.round(2 * scale))} tbsp`, note: 'Coarsely pounded in mortar' },
+              { name: 'Sompu & Seeragam (Fennel & Cumin)', qty: `${Math.max(1, Math.round(1.5 * scale))} tbsp`, note: 'Dry roasted whole seeds' },
+              { name: 'Nattu Poondu (Country Garlic)', qty: `${Math.round(8 * scale)} cloves`, note: 'Crushed with skin' },
+              { name: 'Fresh Karuveppilai (Curry Leaves)', qty: `${Math.max(2, Math.round(3 * scale))} sprigs`, note: 'Crisper drawer herb' },
+              { name: 'Idhayam Gingelly Oil (Nallennai)', qty: `${Math.round(3 * scale)} tbsp`, note: 'Cold pressed sesame oil' },
+              { name: 'Dry Red Chillies & Rock Salt', qty: `${Math.round(4 * scale)} pcs`, note: 'To taste from spice box' },
             ].map((ing, i) => (
               <div
                 key={i}
@@ -314,27 +317,27 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
           <div>
             <div className="flex items-center gap-2 text-[#964900] font-bold text-sm mb-2">
               <span className="material-symbols-outlined text-[20px]">grocery</span>
-              Optional Flavor Boosters
+              Authentic Flavor Booster
             </div>
             <h4 className="font-headline-sm text-base font-bold text-[#311300]">
-              Missing Fresh Garnish?
+              Extra Curry Leaves & Country Lemon?
             </h4>
             <p className="text-xs text-[#5e2c00] mt-1">
-              Add fresh Italian flat-leaf parsley or Meyer lemons to your smart aisle shopping list for tomorrow's run.
+              Add fresh aromatic karuveppilai and nattu elumichai for an extra burst of freshness before serving.
             </p>
 
             <div className="mt-4 p-3.5 rounded-2xl bg-white border border-[#ffdcc6]">
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-xs font-bold text-[#151e16]">1 Fresh Meyer Lemon</span>
-                  <span className="text-[11px] text-[#40493d] block">Aisle 1 · Produce Dept</span>
+                  <span className="text-xs font-bold text-[#151e16]">Fresh Karuveppilai (Curry Leaves)</span>
+                  <span className="text-[11px] text-[#40493d] block">Aisle 1 · Sandhai Produce</span>
                 </div>
-                <span className="text-xs font-bold text-[#964900]">$0.89</span>
+                <span className="text-xs font-bold text-[#964900]">$0.60</span>
               </div>
 
               <button
                 onClick={() => {
-                  onAddShoppingItem('1 Fresh Meyer Lemon', 0.89, 'Lemon Herb Chicken');
+                  onAddShoppingItem('Fresh Karuveppilai (Curry Leaves - 2 bundles)', 0.60, 'Chettinad Chicken Varuval');
                   setLemonAdded(true);
                 }}
                 disabled={lemonAdded}
@@ -347,14 +350,14 @@ export const CookModeScreen: React.FC<CookModeScreenProps> = ({
                 <span className="material-symbols-outlined text-[16px]">
                   {lemonAdded ? 'check' : 'add_shopping_cart'}
                 </span>
-                <span>{lemonAdded ? 'Added to Smart List' : '+ Add Lemon ($0.89)'}</span>
+                <span>{lemonAdded ? 'Added to Smart List' : '+ Add Curry Leaves ($0.60)'}</span>
               </button>
             </div>
           </div>
 
           <div className="mt-4 pt-4 border-t border-[#ffdcc6] text-xs text-[#5e2c00] flex items-center gap-2">
             <span className="material-symbols-outlined text-[#964900] text-[18px]">verified</span>
-            <span>All core proteins and potatoes 100% matched in current inventory.</span>
+            <span>All proteins, shallots & cold-pressed oil 100% on-hand in pantry.</span>
           </div>
         </div>
       </div>

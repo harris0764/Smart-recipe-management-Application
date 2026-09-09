@@ -1,5 +1,5 @@
 {
-  "name": "PantryCraft",
+  "name": "Recipe Finder",
   "description": "Smart Recipe Studio with zero-waste culinary intelligence, instant pantry recipe matching, interactive cook mode, and aisle-optimized smart shopping lists.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

@@ -529,13 +529,13 @@ export const SmartShoppingScreen: React.FC<SmartShoppingScreenProps> = ({
           <div className="bg-white rounded-3xl p-6 border border-[#e1ebde]">
             <div className="flex items-center gap-2 mb-2 text-[#964900] font-bold text-xs">
               <span className="material-symbols-outlined text-[18px]">tips_and_updates</span>
-              Chef Maya's Freshness Tip
+              Chef Hrithick's Freshness Tip
             </div>
             <h4 className="font-headline-sm text-sm font-bold text-[#151e16]">
-              Selecting Meyer Lemons
+              Selecting Chinna Vengayam & Karuveppilai
             </h4>
             <p className="text-xs text-[#40493d] mt-1 leading-relaxed">
-              Look for Meyer lemons with smooth, thin, fragrant rinds and deep golden hues. They yield 40% more sweet-tart juice than standard thick-rind Eureka lemons.
+              Always select firm, dark pink shallots and dark-green glossy curry leaves packed with aromatic oils. In South Indian cooking, tempering them in hot Idhayam Nallennai releases the authentic restaurant flavor!
             </p>
           </div>
         </div>

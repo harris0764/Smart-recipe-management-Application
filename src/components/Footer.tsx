@@ -9,14 +9,14 @@ export const Footer: React.FC = () => {
             <span className="material-symbols-outlined text-[16px] text-[#0d631b]">scale</span>
             Quick Converters:
           </span>
+          <span className="px-2 py-0.5 rounded bg-[#ecf7ea] text-[#0d631b] font-medium">1 Aazhakku = 200ml</span>
           <span className="px-2 py-0.5 rounded bg-[#ecf7ea] text-[#0d631b] font-medium">1 Cup = 240ml</span>
           <span className="px-2 py-0.5 rounded bg-[#ecf7ea] text-[#0d631b] font-medium">1 Tbsp = 15ml</span>
-          <span className="px-2 py-0.5 rounded bg-[#ecf7ea] text-[#0d631b] font-medium">1 oz = 28.3g</span>
         </div>
 
         <div className="flex items-center gap-space-sm text-center">
           <span className="material-symbols-outlined text-[16px] text-[#2e7d32]">verified_user</span>
-          <span>Dietary Filter: <strong className="text-[#151e16]">Smart Allergen Shield Active</strong></span>
+          <span>Dietary Filter: <strong className="text-[#151e16]">Pure Veg & Halal / Non-Veg Tamil Shield</strong></span>
         </div>
 
         <div className="flex items-center gap-space-xs text-[#0d631b] font-semibold">

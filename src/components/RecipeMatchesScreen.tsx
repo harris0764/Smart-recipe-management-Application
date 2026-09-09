@@ -67,7 +67,7 @@ export const RecipeMatchesScreen: React.FC<RecipeMatchesScreenProps> = ({
               </span>
             </div>
             <h1 className="font-headline-md text-lg md:text-xl font-bold text-[#151e16] mt-0.5">
-              14 Chef-Tested Recipes Matched to Your 12 On-Hand Items
+              {recipes.length} Authentic Tamil Nadu Dishes Matched to Your Pantry Items
             </h1>
           </div>
         </div>
@@ -169,6 +169,9 @@ export const RecipeMatchesScreen: React.FC<RecipeMatchesScreenProps> = ({
                     alt={recipe.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=800&auto=format&fit=crop&q=80';
+                    }}
                   />
                   {/* Top Badges */}
                   <div className="absolute top-3 left-3 flex flex-col gap-1.5">

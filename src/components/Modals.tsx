@@ -102,7 +102,7 @@ export const ScanReceiptModal: React.FC<ScanReceiptModalProps> = ({
       setScanning(false);
       setScannedDone(true);
       setTimeout(() => {
-        onReceiptScanned(['Meyer Lemons', 'Baby Spinach', 'Organic Eggs', 'Greek Yogurt', 'Rosemary']);
+        onReceiptScanned(['Chinna Vengayam (Shallots)', 'Fresh Karuveppilai', 'Idhayam Nallennai', 'Country Tomatoes', 'Toor Dal']);
         onClose();
         setScannedDone(false);
       }, 1000);
