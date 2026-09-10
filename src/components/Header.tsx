@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [profileOpen, setProfileOpen] = useState(false);
 
   return (
-    <header className="fixed top-3 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-7xl z-50 glass-navbar rounded-[28px] transition-all duration-300">
+    <header className="fixed top-3 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-[1600px] z-50 glass-navbar rounded-[28px] transition-all duration-300">
       <div className="h-20 px-4 sm:px-6 md:px-8 flex items-center justify-between gap-4">
         {/* Brand & Desktop Navigation */}
         <div className="flex items-center gap-6 lg:gap-8 shrink-0">
@@ -55,12 +55,11 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {/* Center Tabs */}
-          <nav className="hidden xl:flex items-center gap-1.5 bg-[#ecf7ea]/90 p-1.5 rounded-full border border-[#dbe5d9]">
-            <button
-              onClick={onNavigateToShopping}
+          <nav className="hidden 2xl:flex items-center gap-1.5 bg-white shadow-sm p-1.5 rounded-full border border-[#dbe5d9]">
+            <button onClick={() => onTabChange('pantry')}
               className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all cursor-pointer ${activeTab === 'pantry'
-                  ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
-                  : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
+                ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
+                : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
                 }`}
             >
               Pantry & Input
@@ -69,26 +68,25 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => onTabChange('recipes')}
               className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'recipes'
-                  ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
-                  : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
+                ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
+                : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
                 }`}
             >
               <span>Recipe Matches</span>
               <span
                 className={`text-xs px-2.5 py-0.5 rounded-full font-extrabold ${activeTab === 'recipes'
-                    ? 'bg-[#a3f69c] text-[#002204]'
-                    : 'bg-[#a3f69c] text-[#002204]'
+                  ? 'bg-[#a3f69c] text-[#002204]'
+                  : 'bg-[#a3f69c] text-[#002204]'
                   }`}
               >
                 {readyRecipeCount} Ready
               </span>
             </button>
 
-            <button
-              onClick={onNavigateToPantry}
+            <button onClick={() => onTabChange('cook')}
               className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'cook'
-                  ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
-                  : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
+                ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
+                : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
                 }`}
             >
               <span>Cook Mode</span>
@@ -101,15 +99,15 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => onTabChange('shopping')}
               className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'shopping'
-                  ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
-                  : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
+                ? 'bg-[#2e7d32] text-white shadow-md glow-primary'
+                : 'text-[#40493d] hover:bg-white/80 hover:text-[#151e16]'
                 }`}
             >
               <span>Smart Shopping</span>
               <span
                 className={`text-xs px-2.5 py-0.5 rounded-full font-extrabold ${activeTab === 'shopping'
-                    ? 'bg-[#ffdcc6] text-[#311300]'
-                    : 'bg-[#ffdcc6] text-[#311300]'
+                  ? 'bg-[#ffdcc6] text-[#311300]'
+                  : 'bg-[#ffdcc6] text-[#311300]'
                   }`}
               >
                 {shoppingCount} items
@@ -119,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Right Action Icons & Chef Profile */}
-        <div className="flex items-center gap-3 flex-center">
+        <div className="flex items-center gap-3 flex-center shrink-0">
           <div className="hidden md:flex items-center gap-2 bg-[#ecf7ea]/90 border border-[#dbe5d9] px-4 py-2 rounded-full text-[#151e16]">
             <span className="h-2.5 w-2.5 rounded-full bg-[#0d631b] inline-block animate-pulse"></span>
             <span className="text-sm font-extrabold">{inStockCount} Items</span>
@@ -160,7 +158,7 @@ export const Header: React.FC<HeaderProps> = ({
                   (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=120&auto=format&fit=crop&q=80';
                 }}
               />
-              <span className="hidden lg:inline font-label-lg text-label-lg text-[#151e16] font-bold">Chef Hrithick</span>
+              <span className="hidden lg:inline whitespace-nowrap font-label-lg text-label-lg text-[#151e16] font-bold">Chef Hrithick</span>
               <span className="material-symbols-outlined text-[18px] text-[#40493d]">expand_more</span>
             </button>
 
@@ -201,7 +199,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Menu Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[#ecf7ea] text-[#151e16]"
+            className="2xl:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[#ecf7ea] text-[#151e16]"
             aria-label="Toggle Navigation"
           >
             <span className="material-symbols-outlined text-[24px]">
